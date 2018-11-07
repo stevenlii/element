@@ -17,7 +17,7 @@
     <div class="el-progress-bar" v-if="type === 'line'">
       <div class="el-progress-bar__outer" :style="{height: strokeWidth + 'px'}">
         <div class="el-progress-bar__inner" :style="barStyle">
-          <div class="el-progress-bar__innerText" v-if="showText && textInside">{{percentage}}%</div>
+          <div class="el-progress-bar__innerText" v-if="showText && textInside">{{innerTxt}}</div>
         </div>
       </div>
     </div>
@@ -46,6 +46,11 @@
         default: 'line',
         validator: val => ['line', 'circle'].indexOf(val) > -1
       },
+      innerTxt: {
+      type: String,
+      default: "",
+      required: false
+    },
       percentage: {
         type: Number,
         default: 0,
